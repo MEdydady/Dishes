@@ -1,7 +1,9 @@
 import pprint
 
+# Читаю рецепты из файла
 with open("dishes.txt", encoding="utf-8") as f:
 
+    # Создаю словарик  Задача 1
     cook_book = {}
     for line in f:
         name_dish = line.strip()
@@ -23,14 +25,16 @@ with open("dishes.txt", encoding="utf-8") as f:
     print()
 
 
+# Функция подсчета ингредиентов .
 def get_shop_list_by_dishes(dishes, person_count):
 
     result = {}
-    for x, y in cook_book.items():
+    for x, y in cook_book.items():   #Прохожусь по словарику с рецептами
 
-        if x in dishes:
+        if x in dishes: #Сравниваю если ли указаное блюдо в рецептах
 
-            for i in y:
+            # Составление словаря с ингредиентами
+            for i in y:    
                 name = i.pop('ingredient_name')
                 z = dict(reversed(
                     i.items()))  # Меняю местами элементы measure  и quantity
